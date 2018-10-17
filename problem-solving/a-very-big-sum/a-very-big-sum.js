@@ -7,5 +7,4 @@ function aVeryBigSum(ar) {
     });
 
     return parseInt(sum);
-
 }
