@@ -6,14 +6,12 @@ function sherlockAndAnagrams(s) {
 
   for (let i = 0; i <= s.length; i++) {
 		let subS = s.substring(0, i + 1);
-		let sToCheck = reversedS.substring(0, (reversedS.length - subS.length) + 1);
+		let subRegex = new RegExp(subS, 'g');
 
-		for(let j = 0; j <= sToCheck.length; j++) {
-			let match = sToCheck.indexOf(subS, j);
-
-			if(match > -1) {
-				occurrences++;
-			}
+		if (i === 1) {
+			occurrences += (reversedS.match(subRegex) || []).length - 1;
+		} else {
+			occurrences += (reversedS.match(subRegex) || []).length;
 		}
   }
 
